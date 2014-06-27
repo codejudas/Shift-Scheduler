@@ -1,0 +1,17 @@
+#!/usr/bin/python
+
+#Runs ShiftScheduler under UNIX and ensures that python version is >= 3
+import sys
+from subprocess import call
+
+try:
+    p_vers = sys.version_info
+    print("Detected python version %d.%d"%(p_vers[0],p_vers[1]))
+    if p_vers[0] < 3:
+        raise Exception
+except:
+    print("Requires python 3.0 or later, please upgrade.")
+    sys.exit(0)
+
+#run programmer
+call(["python","UI.py"])
